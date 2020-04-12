@@ -1,0 +1,75 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: b1adaeb33f3bb1ff1f84c0008138ef642288a9d13a9b874b839c6e4124e21875
+
+name:           sml-format
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/tkadur/sml-format#readme>
+homepage:       https://github.com/tkadur/sml-format#readme
+bug-reports:    https://github.com/tkadur/sml-format/issues
+author:         Thejaswi Kadur
+maintainer:     thejas.kadur@gmail.com
+copyright:      2020 Thejaswi Kadur
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/tkadur/sml-format
+
+library
+  exposed-modules:
+      Config
+      Prelude
+  other-modules:
+      Paths_sml_format
+  hs-source-dirs:
+      src
+  default-extensions: FlexibleContexts FlexibleInstances GeneralizedNewtypeDeriving InstanceSigs MultiParamTypeClasses ScopedTypeVariables StrictData DuplicateRecordFields LambdaCase NamedFieldPuns OverloadedStrings RecordWildCards TupleSections DeriveFoldable DeriveFunctor DeriveGeneric DeriveTraversable FunctionalDependencies KindSignatures TypeOperators DataKinds GADTs RankNTypes TypeFamilies AllowAmbiguousTypes ApplicativeDo BangPatterns ConstraintKinds DefaultSignatures MultiWayIf NoMonomorphismRestriction TypeApplications
+  build-depends:
+      base-noprelude
+    , language-sml
+    , optparse-applicative
+    , relude
+  default-language: Haskell2010
+
+executable sml-format-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_sml_format
+  hs-source-dirs:
+      app
+  default-extensions: FlexibleContexts FlexibleInstances GeneralizedNewtypeDeriving InstanceSigs MultiParamTypeClasses ScopedTypeVariables StrictData DuplicateRecordFields LambdaCase NamedFieldPuns OverloadedStrings RecordWildCards TupleSections DeriveFoldable DeriveFunctor DeriveGeneric DeriveTraversable FunctionalDependencies KindSignatures TypeOperators DataKinds GADTs RankNTypes TypeFamilies AllowAmbiguousTypes ApplicativeDo BangPatterns ConstraintKinds DefaultSignatures MultiWayIf NoMonomorphismRestriction TypeApplications
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base-noprelude
+    , language-sml
+    , optparse-applicative
+    , relude
+    , sml-format
+  default-language: Haskell2010
+
+test-suite sml-format-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_sml_format
+  hs-source-dirs:
+      test
+  default-extensions: FlexibleContexts FlexibleInstances GeneralizedNewtypeDeriving InstanceSigs MultiParamTypeClasses ScopedTypeVariables StrictData DuplicateRecordFields LambdaCase NamedFieldPuns OverloadedStrings RecordWildCards TupleSections DeriveFoldable DeriveFunctor DeriveGeneric DeriveTraversable FunctionalDependencies KindSignatures TypeOperators DataKinds GADTs RankNTypes TypeFamilies AllowAmbiguousTypes ApplicativeDo BangPatterns ConstraintKinds DefaultSignatures MultiWayIf NoMonomorphismRestriction TypeApplications
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base-noprelude
+    , language-sml
+    , optparse-applicative
+    , relude
+    , sml-format
+  default-language: Haskell2010

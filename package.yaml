@@ -1,0 +1,91 @@
+name: sml-format
+version: 0.1.0.0
+github: "tkadur/sml-format"
+license: BSD3
+author: "Thejaswi Kadur"
+maintainer: "thejas.kadur@gmail.com"
+copyright: "2020 Thejaswi Kadur"
+
+extra-source-files:
+  - README.md
+  - ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description: Please see the README on GitHub at <https://github.com/tkadur/sml-format#readme>
+
+dependencies:
+  - base-noprelude
+  - relude
+  - language-sml
+  - optparse-applicative
+
+default-extensions:
+  # Basics
+  - FlexibleContexts
+  - FlexibleInstances
+  - GeneralizedNewtypeDeriving
+  - InstanceSigs
+  - MultiParamTypeClasses
+  - ScopedTypeVariables
+  - StrictData
+    # Ergonomics
+  - DuplicateRecordFields
+  - LambdaCase
+  - NamedFieldPuns
+  - OverloadedStrings
+  - RecordWildCards
+  - TupleSections
+    # Deriving
+  - DeriveFoldable
+  - DeriveFunctor
+  - DeriveGeneric
+  - DeriveTraversable
+    # Typeclasses
+  - FunctionalDependencies
+  - KindSignatures
+  - TypeOperators
+    # Fancier bois
+  - DataKinds
+  - GADTs
+  - RankNTypes
+  - TypeFamilies
+    # Random stuff
+  - AllowAmbiguousTypes
+  - ApplicativeDo
+  - BangPatterns
+  - ConstraintKinds
+  - DefaultSignatures
+  - MultiWayIf
+  - NoMonomorphismRestriction
+  - TypeApplications
+
+library:
+  source-dirs: src
+
+executables:
+  sml-format-exe:
+    main: Main.hs
+    source-dirs: app
+    ghc-options:
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
+    dependencies:
+      - sml-format
+
+tests:
+  sml-format-test:
+    main: Spec.hs
+    source-dirs: test
+    ghc-options:
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
+    dependencies:
+      - sml-format
