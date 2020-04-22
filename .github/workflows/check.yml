@@ -1,0 +1,40 @@
+name: Build and test
+
+on:
+  # Trigger the workflow on push to master or pull request
+  push:
+    branches:
+      - master
+  pull_request:
+  release:
+
+jobs:
+  # Build
+  build:
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest, windows-latest]
+      fail-fast: false
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Clone project
+      - uses: actions/checkout@v2
+
+      - name: Setup Stack
+        uses: mstksg/setup-stack@v2
+      
+      - name: Cache dependencies
+        uses: actions/cache@v1
+        with:
+          path: ~/.stack
+          key: ${{ runner.os }}-${{ hashFiles('stack.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-
+
+      - name: Build
+        run: "stack build --fast"
+      
+      - name: Test
+        run: "stack test --fast"
