@@ -1,10 +1,8 @@
 module Main where
 
 import           Options.Applicative
-import qualified Language.Sml.Lexer            as Lexer
-import qualified Language.Sml.Parser           as Parser
+import           Language.Sml
 import qualified Language.Sml.Pretty           as Pretty
--- import           System.IO
 
 import           Config
 
@@ -36,17 +34,28 @@ main = do
   let filename = inputFileName inputFile
   input <- readInput inputFile
 
-  (comments, lexed) <- case Lexer.runLexer filename input of
+  (comments, lexed) <- case lex filename input of
     Right res -> return res
-    Left  err -> do
-      putStrLn (Lexer.showError err)
-      exitFailure
+    Left  err -> reportLexerError err
 
-  parsed <- case Parser.parseToplevel filename input lexed of
+  parsed <- case parse lexed of
     Right res -> return res
-    Left  err -> do
-      putStrLn (Parser.showError err)
-      exitFailure
+    Left  err -> reportParserError err
 
-  let prettyPrinted = Pretty.prettyPrint (Pretty.Config { Pretty.lineLength, Pretty.indentWidth }) comments parsed
+  let prettyPrintConfig = Pretty.Config { Pretty.lineLength, Pretty.indentWidth }
+
+  let prettyPrinted     = prettyPrint prettyPrintConfig comments parsed
+
+  -- Safety check
+  let (recomments, relexed) = case lex "recheck" prettyPrinted of
+        Right res -> res
+        Left  _   -> error "Relexing failed"
+  let reparsed = case parse relexed of
+        Right res -> res
+        Left  _   -> error "Reparsing failed"
+  if comments /= recomments
+    then error "Relexed comments were different"
+    else if parsed /= reparsed then error "Reparsed AST was different" else return ()
+
+
   putTextLn prettyPrinted
