@@ -20,11 +20,11 @@ jobs:
 
     steps:
       - name: Clone project
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
 
       - name: Setup Stack
         uses: mstksg/setup-stack@v2
-      
+
       - name: Cache dependencies
         uses: actions/cache@v1
         with:
@@ -35,6 +35,6 @@ jobs:
 
       - name: Build
         run: "stack build --fast"
-      
+
       - name: Test
         run: "stack test --fast"
