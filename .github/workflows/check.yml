@@ -33,8 +33,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-
 
-      - name: Build
+      - name: Install Alex
         run: "stack build alex --fast"
+
+      - name: Build
+        run: "stack build --fast"
 
       - name: Test
         run: "stack test --fast"
