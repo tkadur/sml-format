@@ -34,7 +34,7 @@ jobs:
             ${{ runner.os }}-
 
       - name: Build
-        run: "stack build --fast"
+        run: "stack build alex --fast"
 
       - name: Test
         run: "stack test --fast"
