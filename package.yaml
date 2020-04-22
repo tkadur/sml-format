@@ -69,7 +69,7 @@ library:
   source-dirs: src
 
 executables:
-  sml-format-exe:
+  sml-format:
     main: Main.hs
     source-dirs: app
     ghc-options:
