@@ -42,7 +42,7 @@ packages:
 extra-deps:
   - base-noprelude-4.13.0.0
   - github: tkadur/language-sml
-    commit: 9649da22005feeae4dea3358d19a79a6acf24092
+    commit: c6aeda644772f82566d95216faff8d7c53c10da2
 # Override default flag values for local packages and extra-deps
 # flags: {}
 
