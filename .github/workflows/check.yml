@@ -48,5 +48,5 @@ jobs:
       - name: Upload binary
         uses: actions/upload-artifact@v1
         with:
-          name: sml-format
+          name: sml-format-${{ runner.os }}
           path: output/bin/sml-format
