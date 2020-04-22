@@ -34,10 +34,19 @@ jobs:
             ${{ runner.os }}-
 
       - name: Install Alex
-        run: "stack build alex --fast"
+        run: "stack build alex"
 
       - name: Build
-        run: "stack build --fast"
+        run: "stack build"
 
       - name: Test
-        run: "stack test --fast"
+        run: "stack test"
+
+      - name: Copy binary
+        run: "stack install --local-bin-path output/bin/"
+
+      - name: Upload binary
+        uses: actions/upload-artifact@v1
+        with:
+          name: sml-format
+          path: output/bin/sml-format
