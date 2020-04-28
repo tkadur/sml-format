@@ -12,19 +12,19 @@ packages:
   original:
     hackage: base-noprelude-4.13.0.0
 - completed:
-    size: 48339
-    url: https://github.com/tkadur/language-sml/archive/c6aeda644772f82566d95216faff8d7c53c10da2.tar.gz
+    size: 49080
+    url: https://github.com/tkadur/language-sml/archive/51320fca82b7328198d2dac87c3ebc3d39b71536.tar.gz
     cabal-file:
-      size: 4657
-      sha256: 84689287fb199edeb9489f60bc5737ea367fd1e80330b696105f176f41ad1737
+      size: 4686
+      sha256: 38b1ad6325808886f01df2d79d5f7d3aa15f9e660112d4e8cc03b2a74b8f2ea4
     name: language-sml
     version: 0.1.0.0
-    sha256: 164ddabe58b58a2cee7d32d2eb60ed3640a2db783ed90ec0e00b2cfd8ebadadb
+    sha256: 982aa9e542bf165d8b72da90fd1eb123e749b6846cfdfc35cbd86f4c72b0d0b2
     pantry-tree:
-      size: 4713
-      sha256: fba2ab91d96738a6dade4924ed894769a06b2b257bfb4726b08ee01cb60a2560
+      size: 4750
+      sha256: 237f6cac6b3b41541aa0fd733c5796d2e4ce8adf6e5a6855a0a785f9972954ee
   original:
-    url: https://github.com/tkadur/language-sml/archive/c6aeda644772f82566d95216faff8d7c53c10da2.tar.gz
+    url: https://github.com/tkadur/language-sml/archive/51320fca82b7328198d2dac87c3ebc3d39b71536.tar.gz
 snapshots:
 - completed:
     size: 488576
